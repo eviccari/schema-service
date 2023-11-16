@@ -1,1 +1,1 @@
-pytest --cov=src/core --cov-report=html
+pytest --cov=src/core --cov-report=html --cov-report=xml
