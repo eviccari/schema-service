@@ -13,14 +13,13 @@ class Schema:
         return self.__json_schema
     
     
-    def validate(self, json_payload: str) -> ValidationResult:
+    def validate(self, json_body: str) -> ValidationResult:
         v = Validator(self.json_schema)
-        v.validate(document=self.__convert(json_payload))
+        v.validate(document=self.__convert(json_body))
         if v.errors:
             return ValidationResult(errors=v.errors)
         return ValidationResult(errors=None)
-
-        
+ 
           
     def __convert(self, string_value: str) -> dict:
         try:
